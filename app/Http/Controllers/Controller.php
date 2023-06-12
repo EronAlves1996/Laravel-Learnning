@@ -16,4 +16,18 @@ class Controller extends BaseController
     {
         return view('about');
     }
+
+    /**
+     * @return array<int,array<string,mixed>>
+     */
+    public function getAllUsers(): array
+    {
+        return [
+            [
+                'name' => 'José',
+                'id' => 1
+            ],
+            ['name' => 'João', 'id' => 2]
+        ];
+    }
 }
