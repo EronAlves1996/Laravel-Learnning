@@ -25,5 +25,10 @@ Route::get('/home', function () {
 Route::get('/about', [Controller::class, 'aboutPage']);
 
 Route::get('/isAdmin', function () {
-    return view('isAdmin');
+    $name = 'John Doe';
+    $age = 30;
+    $isAdmin = true;
+
+    return view('isAdmin')
+        ->with(['name' => $name, 'age' => $age, 'isAdmin' => $isAdmin]);
 });
