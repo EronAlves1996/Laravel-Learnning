@@ -23,3 +23,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/about', [Controller::class, 'aboutPage']);
+
+Route::get('/isAdmin', function () {
+    return view('isAdmin');
+});
