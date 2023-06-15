@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,22 @@ Route::get('/isAdmin', function () {
 
     return view('isAdmin')
         ->with(['name' => $name, 'age' => $age, 'isAdmin' => $isAdmin]);
+});
+
+Route::prefix('/landing-page')->group(function () {
+    Route::get('/', function () {
+        return view('page.index');
+    });
+
+    Route::get('/search', function (Request $request) {
+        $data = ['José', 'João', 'Nome qualquer', 'etc', 'Vai se foder'];
+
+        $query = $request->query('busca');
+
+        $filtered = array_filter($data, function ($d) use ($query) {
+            return str_contains($d, $query);
+        });
+
+        return view('page.result')->with('filtered', $filtered);
+    });
 });
