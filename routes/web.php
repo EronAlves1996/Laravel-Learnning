@@ -51,3 +51,5 @@ Route::prefix('/landing-page')->group(function () {
         return view('page.result')->with('filtered', $filtered);
     });
 });
+
+Route::view('php-snippet', 'php-snippet');
